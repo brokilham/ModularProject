@@ -31,12 +31,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+   # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'App_Accounts',
     'App_Dashboard',
     'App_Pulsa',
 ]
@@ -126,3 +127,10 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+# my_project/settings.py
+# LOGIN_URL digunakan ketika belum login dan membuka homepage akan di arahkan ke login page
+LOGIN_URL = 'app_accounts/login'
+#LOGIN_REDIRECT_URL digunakan untuk mengarahkan ketika login suksess ke homepage jika metode login tanpa ajax
+#LOGIN_REDIRECT_URL = '/'
+#LOGOUT_REDIRECT_URL digunakan untuk mengarahkan ketika logout suksess ke homepage jika metode login tanpa ajax
+#LOGOUT_REDIRECT_URL = 'app_accounts/login'
