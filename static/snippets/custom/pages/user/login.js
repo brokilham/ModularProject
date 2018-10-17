@@ -93,7 +93,7 @@ var SnippetLogin = function() {
 
             form.ajaxSubmit({
                 url: '/app_accounts/login_process',
-                methods:"POST",
+                type:"POST",
                 data : $('#frm-login').serialize(),
                 dataType: 'json',
                 success: function(response, status, xhr, $form) {
