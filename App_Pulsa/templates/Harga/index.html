@@ -193,7 +193,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">
-                    Tambah Harga Pulsa
+                    Edit Harga Pulsa
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">
@@ -206,9 +206,15 @@
                     {% csrf_token %}
                     <div class="form-group">
                         <label class="form-control-label">
+                            Id
+                        </label>
+                        <input type="text" class="form-control m-input m-input--solid" id="txt_id_edit" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">
                             Nama Pulsa
                         </label>
-                        <select class="form-control m-input m-input--solid" id="slc_id_jenis_pulsa">             
+                        <select class="form-control m-input m-input--solid" id="slc_id_jenis_pulsa_edit">             
                         </select>                                  
                     </div>
                     <div class="form-group m-form__group row">
@@ -216,14 +222,14 @@
                             <label class="form-control-label">
                                 Harga Beli
                             </label>
-                            <input type="number" class="form-control m-input m-input--solid" id="txt_harga_beli">                        
+                            <input type="number" class="form-control m-input m-input--solid" id="txt_harga_beli_edit">                        
                     
                             </div> 
                         <div class="col-lg-6">
                             <label class="form-control-label">
                                 Harga Jual
                             </label>
-                            <input type="number" class="form-control m-input m-input--solid" id="txt_harga_jual">                
+                            <input type="number" class="form-control m-input m-input--solid" id="txt_harga_jual_edit">                
                         </div> 
                     </div>
                     <div class="form-group m-form__group row">
@@ -232,7 +238,7 @@
                                 Periode Mulai
                             </label>
                             <div class="input-group date">
-                                <input type="text" class="form-control m-input m-input--solid date_picker" readonly="" placeholder="Select date" id="date_periode_mulai">
+                                <input type="text" class="form-control m-input m-input--solid date_picker" readonly="" placeholder="Select date" id="date_periode_mulai_edit">
                                 <div class="input-group-append">
                                     <span class="input-group-text">
                                         <i class="la la-calendar-check-o"></i>
@@ -245,7 +251,7 @@
                                 Periode Akhir
                             </label>
                             <div class="input-group date">
-                                <input type="text" class="form-control m-input m-input--solid date_picker" readonly="" placeholder="Select date" id="date_periode_akhir">
+                                <input type="text" class="form-control m-input m-input--solid date_picker" readonly="" placeholder="Select date" id="date_periode_akhir_edit">
                                 <div class="input-group-append">
                                     <span class="input-group-text">
                                         <i class="la la-calendar-check-o"></i>
@@ -360,11 +366,31 @@ $(document).ready(function() {
     });
 
     table.on("click", "#anchor_update", function(){
-        /*$("#txt_id_edit").val($(this).attr('attr-id-item'));  
-        $("#txt_jenis_voucher_edit").val($(this).attr('attr-jenis_voucher'));
-        $("#txt_kode_voucher_edit").val($(this).attr('attr-kode_voucher'));
-        $("#txt_tipe_voucher_edit").val($(this).attr('attr-tipe_voucher'));*/
-        $("#modal_edit_harga_pulsa").modal('show');      
+     
+        if($('#slc_id_jenis_pulsa_edit option').length == 0){
+            $.ajax({
+                type:"GET",
+                url:'/app_pulsa/harga_webview',    
+                headers: {  "X-CSRFToken": $("[name=csrfmiddlewaretoken]").val()},  
+                data:{"http_type":"get","jobs":"get_data_select_jenis_pulsa"},  
+                success: function(data){  
+                    $('#slc_id_jenis_pulsa_edit').append(data);     
+                    $("#modal_edit_harga_pulsa").modal('show');  
+                },
+                error: function(data){
+                    console.log(data);
+                }
+            });
+        }  
+
+        $("#txt_id_edit").val($(this).attr('attr-id-item'));
+        $("#slc_id_jenis_pulsa_edit").val($(this).attr('attr-jenis-voucher'));
+        $("#txt_harga_beli_edit").val($(this).attr('attr-harga-beli'));
+        $("#txt_harga_jual_edit").val($(this).attr('attr-harga-jual'));
+        $("#date_periode_mulai_edit").val($(this).attr('attr-periode-mulai'));
+        $("#date_periode_akhir_edit").val($(this).attr('attr-periode-akhir'));
+             
+       
     });
     
 });

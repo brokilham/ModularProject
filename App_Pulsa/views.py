@@ -173,7 +173,7 @@ class harga_webview(View):
                 'harga_jual': item.harga_jual,
                 'periode_mulai': item.periode_mulai,
                 'periode_akhir': item.periode_akhir,
-                'action': '<a id="anchor_update"  attr-id-item="'+ str(item.id) +'"  class="btn btn-success m-btn m-btn--icon btn-sm m-btn--icon-only">'
+                'action': '<a id="anchor_update"  attr-id-item="'+ str(item.id) +'"  attr-jenis-voucher="'+ str(item.t_master_jenis_pulsa.id) +'"  attr-harga-beli="'+ str(item.harga_beli) +'" attr-harga-jual="'+ str(item.harga_jual) +'" attr-periode-mulai="'+ str(item.periode_mulai) +'" attr-periode-akhir="'+ str(item.periode_akhir) +'"  class="btn btn-success m-btn m-btn--icon btn-sm m-btn--icon-only">'
                             '<i class="la la-edit"></i>'
                           '</a> &nbsp;'
                           '<a id="anchor_delete" attr-id-item="'+ str(item.id) +'" class="btn btn-danger m-btn m-btn--icon btn-sm m-btn--icon-only">'
