@@ -31,69 +31,17 @@
                     </span>
                 </a>
             </li>
+            <li class="m-nav__separator">
+                -
+            </li>
+            <li class="m-nav__item">
+                <a href="" class="m-nav__link">
+                    <span class="m-nav__link-text">
+                        Transaksi penjualan pulsa
+                    </span>
+                </a>
+            </li>
         </ul>
-    </div>
-    <div>
-        <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" m-dropdown-toggle="hover" aria-expanded="true">
-            <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
-                <i class="la la-plus m--hide"></i>
-                <i class="la la-ellipsis-h"></i>
-            </a>
-            <div class="m-dropdown__wrapper">
-                <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
-                <div class="m-dropdown__inner">
-                    <div class="m-dropdown__body">
-                        <div class="m-dropdown__content">
-                            <ul class="m-nav">
-                                <li class="m-nav__section m-nav__section--first m--hide">
-                                    <span class="m-nav__section-text">
-                                        Quick Actions
-                                    </span>
-                                </li>
-                                <li class="m-nav__item">
-                                    <a href="" class="m-nav__link">
-                                        <i class="m-nav__link-icon flaticon-share"></i>
-                                        <span class="m-nav__link-text">
-                                            Activity
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="m-nav__item">
-                                    <a href="" class="m-nav__link">
-                                        <i class="m-nav__link-icon flaticon-chat-1"></i>
-                                        <span class="m-nav__link-text">
-                                            Messages
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="m-nav__item">
-                                    <a href="" class="m-nav__link">
-                                        <i class="m-nav__link-icon flaticon-info"></i>
-                                        <span class="m-nav__link-text">
-                                            FAQ
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="m-nav__item">
-                                    <a href="" class="m-nav__link">
-                                        <i class="m-nav__link-icon flaticon-lifebuoy"></i>
-                                        <span class="m-nav__link-text">
-                                            Support
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="m-nav__separator m-nav__separator--fit"></li>
-                                <li class="m-nav__item">
-                                    <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
-                                        Submit
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 {% endblock %}
@@ -111,178 +59,346 @@
         <div class="m-portlet__head-tools">
             <ul class="m-portlet__nav">
                 <li class="m-portlet__nav-item">
-                    <a href="#" class="btn btn-accent m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air">
+                    <a href="#" class="btn btn-accent m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air" data-toggle="modal" data-target="#modal_transaksi_pulsa">
                         <span>
                             <i class="la la-plus"></i>
                             <span>
-                                New Order
+                                Buat Transaksi
                             </span>
                         </span>
                     </a>
-                </li>
-                <li class="m-portlet__nav-item"></li>
-                <li class="m-portlet__nav-item">
-                    <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" m-dropdown-toggle="hover" aria-expanded="true">
-                        <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
-                            <i class="la la-ellipsis-h m--font-brand"></i>
-                        </a>
-                        <div class="m-dropdown__wrapper">
-                            <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
-                            <div class="m-dropdown__inner">
-                                <div class="m-dropdown__body">
-                                    <div class="m-dropdown__content">
-                                        <ul class="m-nav">
-                                            <li class="m-nav__section m-nav__section--first">
-                                                <span class="m-nav__section-text">
-                                                    Quick Actions
-                                                </span>
-                                            </li>
-                                            <li class="m-nav__item">
-                                                <a href="" class="m-nav__link">
-                                                    <i class="m-nav__link-icon flaticon-share"></i>
-                                                    <span class="m-nav__link-text">
-                                                        Create Post
-                                                    </span>
-                                                </a>
-                                            </li>
-                                            <li class="m-nav__item">
-                                                <a href="" class="m-nav__link">
-                                                    <i class="m-nav__link-icon flaticon-chat-1"></i>
-                                                    <span class="m-nav__link-text">
-                                                        Send Messages
-                                                    </span>
-                                                </a>
-                                            </li>
-                                            <li class="m-nav__item">
-                                                <a href="" class="m-nav__link">
-                                                    <i class="m-nav__link-icon flaticon-multimedia-2"></i>
-                                                    <span class="m-nav__link-text">
-                                                        Upload File
-                                                    </span>
-                                                </a>
-                                            </li>
-                                            <li class="m-nav__section">
-                                                <span class="m-nav__section-text">
-                                                    Useful Links
-                                                </span>
-                                            </li>
-                                            <li class="m-nav__item">
-                                                <a href="" class="m-nav__link">
-                                                    <i class="m-nav__link-icon flaticon-info"></i>
-                                                    <span class="m-nav__link-text">
-                                                        FAQ
-                                                    </span>
-                                                </a>
-                                            </li>
-                                            <li class="m-nav__item">
-                                                <a href="" class="m-nav__link">
-                                                    <i class="m-nav__link-icon flaticon-lifebuoy"></i>
-                                                    <span class="m-nav__link-text">
-                                                        Support
-                                                    </span>
-                                                </a>
-                                            </li>
-                                            <li class="m-nav__separator m-nav__separator--fit m--hide"></li>
-                                            <li class="m-nav__item m--hide">
-                                                <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
-                                                    Submit
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+                </li>               
             </ul>
         </div>
     </div>
     <div class="m-portlet__body">
         <!--begin: Datatable -->
-        <table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
+        <table class="table table-striped- table-bordered table-hover table-checkable" id="table_transaksi_pulsa">
             <thead>
-                <tr>
+                <tr>                     
                     <th>
-                        RecordID
+                        Id
+                    </th>   
+                    <th>
+                        No HP
                     </th>
                     <th>
-                        OrderID
+                        Jenis Voucher
                     </th>
                     <th>
-                        Country
+                        Total Uang
                     </th>
                     <th>
-                        ShipCity
+                        Tanggal Beli
                     </th>
                     <th>
-                        ShipAddress
-                    </th>
+                       Catatan
+                    </th>  
                     <th>
-                        CompanyAgent
-                    </th>
+                        Status Pulsa
+                    </th> 
                     <th>
-                        CompanyName
-                    </th>
-                    <th>
-                        ShipDate
-                    </th>
-                    <th>
-                        Status
-                    </th>
-                    <th>
-                        Type
-                    </th>
-                    <th>
-                        Actions
-                    </th>
+                        Action
+                    </th>                     
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        1
-                    </td>
-                    <td>
-                        61715-075
-                    </td>
-                    <td>
-                        China
-                    </td>
-                    <td>
-                        Tieba
-                    </td>
-                    <td>
-                        746 Pine View Junction
-                    </td>
-                    <td>
-                        Nixie Sailor
-                    </td>
-                    <td>
-                        Gleichner, Ziemann and Gutkowski
-                    </td>
-                    <td>
-                        2/12/2018
-                    </td>
-                    <td>
-                        3
-                    </td>
-                    <td>
-                        2
-                    </td>
-                    <td nowrap></td>
-                </tr>
-            </tbody>
         </table>
     </div>
 </div>
+
+<!--begin::Modal-->
+<div class="modal fade" id="modal_transaksi_pulsa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    Transaksi Penjualan Pulsa
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                        &times;
+                    </span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id = "frm_modal_add_jenis_pulsa">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Nama Pulsa
+                        </label>
+                        <select class="form-control m-input m-input--solid" id="slc_id_harga_pulsa">             
+                        </select>                                  
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Nomer HP
+                        </label>
+                        <input type="number" class="form-control m-input m-input--solid" id="txt_nomer_hp">                                                      
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Tanggal Transaksi
+                        </label>
+                        <div class="input-group date">
+                            <input type="text" class="form-control m-input m-input--solid date_picker" readonly="" placeholder="Select date" id="date_tgl_transaksi">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="la la-calendar-check-o"></i>
+                                </span>
+                            </div>
+                        </div>                       
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Uang yang harus di bayar
+                        </label>
+                        <input type="number" class="form-control m-input m-input--solid" id="txt_total_bayar">                        
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Status Pulsa
+                        </label>
+                        <select class="form-control m-input m-input--solid" id="slc_status_transaksi">      
+                            <option value='pending'>Pending</option>
+                            <option value='tidak_terkirim'>Tidak Terkirim</option>
+                            <option value='terkirim'>Terkirim</option>       
+                        </select>                 
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Catatan
+                        </label>
+                        <textarea class="form-control m-input m-input--solid" id="txt_catatan" rows="3"></textarea>                 
+                    </div>              
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Batalkan
+                </button>
+                <button type="button" class="btn btn-primary" id="btn_simpan_transaksi_pulsa">
+                    Simpan
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end::Modal-->
+
+<!--begin::Modal-->
+<div class="modal fade" id="modal_transaksi_pulsa_edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    Transaksi Penjualan Pulsa
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                        &times;
+                    </span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id = "frm_modal_add_jenis_pulsa">
+                    {% csrf_token %}               
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Nomer HP
+                        </label>
+                        <input type="text" class="form-control m-input m-input--solid" id="txt_id_edit" readonly>                                                      
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Nama Pulsa
+                        </label>
+                        <select class="form-control m-input m-input--solid" id="slc_id_harga_pulsa_edit">             
+                        </select>                                  
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Nomer HP
+                        </label>
+                        <input type="number" class="form-control m-input m-input--solid" id="txt_nomer_hp_edit">                                                      
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Tanggal Transaksi
+                        </label>
+                        <div class="input-group date">
+                            <input type="text" class="form-control m-input m-input--solid date_picker" readonly="" placeholder="Select date" id="date_tgl_transaksi_edit">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="la la-calendar-check-o"></i>
+                                </span>
+                            </div>
+                        </div>                       
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Uang yang harus di bayar
+                        </label>
+                        <input type="number" class="form-control m-input m-input--solid" id="txt_total_bayar_edit">                        
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Status Pulsa
+                        </label>
+                        <select class="form-control m-input m-input--solid" id="slc_status_transaksi_edit">      
+                            <option value='pending'>Pending</option>
+                            <option value='tidak_terkirim'>Tidak Terkirim</option>
+                            <option value='terkirim'>Terkirim</option>       
+                        </select>                 
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Catatan
+                        </label>
+                        <textarea class="form-control m-input m-input--solid" id="txt_catatan_edit" rows="3"></textarea>                 
+                    </div>              
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Batalkan
+                </button>
+                <button type="button" class="btn btn-primary" id="btn_simpan_transaksi_pulsa">
+                    Simpan
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end::Modal-->
 {% endblock %}
 
 {% block jquery %}
 <!--begin::Page Vendors -->
 <script src="{% static 'vendors/custom/datatables/datatables.bundle.js' %}" type="text/javascript"></script>
 <!--end::Page Vendors -->  
-<!--begin::Page Resources -->
-<script src="{% static 'demo/default/custom/crud/datatables/basic/basic.js' %}" type="text/javascript"></script>
-<!--end::Page Resources -->
+
+
+<script>
+$(document).ready(function() {
+    $('.date_picker').datepicker({
+        format: 'yyyy-mm-dd',
+        todayHighlight: true,
+        orientation: "bottom left",
+        templates: {
+            leftArrow: '<i class="la la-angle-left"></i>',
+            rightArrow: '<i class="la la-angle-right"></i>'
+        }
+    });
+
+    var table =  $('#table_transaksi_pulsa').DataTable( {
+        "processing": true,
+        "serverSide": true,
+        "ajax": {
+            "url": "/app_pulsa/penjualan_webview",
+            "type": "GET", 
+            "headers": {  "X-CSRFToken": $("[name=csrfmiddlewaretoken]").val()},  
+            "data":{"http_type":"get","jobs":"get_data_datatable"},            
+        },
+        "columns": [
+            { "data": "id" },
+            { "data": "no_hp" },
+            { "data": "jenis_voucher" },
+            { "data": "total_bayar" },
+            { "data": "tgl_beli" },
+            { "data": "catatan" },
+            { "data": "status_transaksi" },
+            { "data": "action" },
+        ],} 
+    );
+
+    $('#modal_transaksi_pulsa').on('shown.bs.modal', function () {
+        if($('#slc_id_harga_pulsa option').length == 0){
+            $.ajax({
+                type:"GET",
+                url:'/app_pulsa/penjualan_webview',    
+                headers: {  "X-CSRFToken": $("[name=csrfmiddlewaretoken]").val()},  
+                data:{"http_type":"get","jobs":"get_data_select_harga_pulsa"},  
+                success: function(data){                  
+                    $('#slc_id_harga_pulsa').append(data);       
+                },
+                error: function(data){
+                    console.log(data);
+                }
+            });
+        }    
+    });
+
+    $('#btn_simpan_transaksi_pulsa').on('click',function(){
+        $.ajax({
+            type:"POST",
+            url:'/app_pulsa/penjualan',    
+            headers: {  "X-CSRFToken": $("[name=csrfmiddlewaretoken]").val()},  
+            data:{"http_type":"post",   
+                    "slc_id_harga_pulsa" :$("#slc_id_harga_pulsa").val(),
+                    "txt_nomer_hp" : $("#txt_nomer_hp").val(),
+                    "date_tgl_transaksi" : $("#date_tgl_transaksi").val(), 
+                    "txt_total_bayar" : $("#txt_total_bayar").val(), 
+                    "slc_status_transaksi" : $("#slc_status_transaksi").val(),
+                    "txt_catatan" : $("#txt_catatan").val() },  
+            success: function(data){  
+                $('#modal_transaksi_pulsa').modal("hide");  
+                table.ajax.reload();     
+                console.log(data)
+            },
+            error: function(data){
+                console.log(data);
+            }
+        });
+    });
+
+    table.on("click", "#anchor_delete", function(){
+        $.ajax({
+            type:"POST",
+            url:'/app_pulsa/penjualan',
+            headers: {  "X-CSRFToken": $("[name=csrfmiddlewaretoken]").val()},           
+            data:{"http_type":"delete",'id': $(this).attr('attr-id-item')},
+            success: function(data){             
+                console.log(data);
+                table.ajax.reload();
+            },
+            error: function(data){
+                console.log(data);
+            }
+        });
+    });
+
+    table.on("click", "#anchor_update", function(){
+        
+        if($('#slc_id_harga_pulsa_edit option').length == 0){
+            $.ajax({
+                type:"GET",
+                url:'/app_pulsa/penjualan_webview',    
+                headers: {  "X-CSRFToken": $("[name=csrfmiddlewaretoken]").val()},  
+                data:{"http_type":"get","jobs":"get_data_select_harga_pulsa"},  
+                success: function(data){                  
+                    $('#slc_id_harga_pulsa_edit').append(data);      
+                    $("#modal_transaksi_pulsa_edit").modal('show');  
+                },
+                error: function(data){
+                    console.log(data);
+                }
+            });
+        }else{
+            $("#modal_transaksi_pulsa_edit").modal('show');  
+        }
+        
+        $("#txt_id_edit").val($(this).attr('attr-id-item'));
+        $("#slc_id_harga_pulsa_edit").val('1');
+        console.log($(this).attr('attr-id-harga'));
+        $("#txt_nomer_hp_edit").val($(this).attr('attr-no-hp'));
+        $("#date_tgl_transaksi_edit").val($(this).attr('attr-tgl-beli'));
+        $("#txt_total_bayar_edit").val($(this).attr('attr-total-bayar'));
+        $("#slc_status_transaksi_edit").val($(this).attr('attr-status-transaksi'));       
+        $("#txt_catatan_edit").val($(this).attr('attr-catatan'));
+     
+        
+    })
+})
+</script>
 {% endblock %}

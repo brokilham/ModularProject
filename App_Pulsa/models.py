@@ -23,3 +23,17 @@ class t_master_harga_pulsa(models.Model):
     updated_by    = models.CharField(max_length=30)
     update_date   = models.DateField()
 
+class t_transaksi_pulsa(models.Model):
+    t_master_harga_pulsa = models.ForeignKey(
+        't_master_harga_pulsa', on_delete=models.CASCADE,
+    )
+    no_hp         = models.CharField(max_length = 20)
+    total_bayar   = models.IntegerField()
+    status_transaksi = models.CharField(max_length=30)
+    catatan       = models.CharField(max_length=150)
+    created_by    = models.CharField(max_length=30)
+    created_date  = models.DateField()
+    updated_by    = models.CharField(max_length=30)
+    update_date   = models.DateField()
+
+

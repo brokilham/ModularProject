@@ -6,7 +6,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.serializers.json import DjangoJSONEncoder
 from django.views import View
 from django.http import JsonResponse, HttpResponse
-from .models import t_master_jenis_pulsa,t_master_harga_pulsa
+from .models import t_master_jenis_pulsa,t_master_harga_pulsa,t_transaksi_pulsa
 from django.db.models import Q
 from django.core import serializers
  
@@ -221,8 +221,121 @@ class harga(View):
     def get(self, request, *args, **kwargs):    
         return render(request, "Harga/index.html")
 
+class penjualan_webview(View):
+
+    def _select_harga_pulsa(self,requset):
+        dt_harga_pulsa = t_master_harga_pulsa.objects.all()
+        option = "<option value =''> Pilih pulsa</option>"
+        for item in dt_harga_pulsa:
+            option += "<option value='"+ str(item.id) +"'>"+ item.t_master_jenis_pulsa.jenis_voucher+" (" + item.t_master_jenis_pulsa.kode_voucher +")"+"</option>"
+        return HttpResponse(option)
+
+    def _datatables(self,request):
+        datatables = request.GET
+        # Ambil draw
+        draw = int(datatables.get('draw'))
+        # Ambil length (limit)
+        length = int(datatables.get('length'))
+        # Ambil data search
+        search = datatables.get('search[value]')
+        # Set record total
+        records_total = t_transaksi_pulsa.objects.all().count()
+		# Set records filtered
+        records_filtered = records_total
+        # Ambil data all
+        dt_transaksi_pulsa = t_transaksi_pulsa.objects.all()
+
+        if search:
+            dt_transaksi_pulsa = dt_transaksi_pulsa.objects.filter(
+					Q(id__icontains=search)
+				)
+            records_total = dt_transaksi_pulsa.count()
+            records_filtered = records_total
+
+        # Atur paginator
+        paginator = Paginator(dt_transaksi_pulsa, length)
+
+        try:
+            object_list = paginator.page(draw).object_list
+        except PageNotAnInteger:
+            object_list = paginator.page(draw).object_list
+        except EmptyPage:
+            object_list = paginator.page(paginator.num_pages).object_list
+
+
+        data = [
+            {
+                'id': item.id,
+                'no_hp' : item.no_hp,
+                'jenis_voucher' : item.t_master_harga_pulsa.t_master_jenis_pulsa.jenis_voucher,
+                'total_bayar' : item.total_bayar,
+                'tgl_beli'  : item.created_date,
+                'catatan' : item.catatan,
+                'status_transaksi' : item.status_transaksi,
+                'action': '<a id="anchor_update"  attr-id-item="'+ str(item.id) +'" attr-no-hp="'+ str(item.no_hp) +
+                '" attr-jenis-voucher="'+ str(item.t_master_harga_pulsa.t_master_jenis_pulsa.jenis_voucher) +
+                '" attr-total-bayar="'+ str(item.total_bayar) +'" attr-tgl-beli="'+ str(item.created_date) +
+                '" attr-catatan="'+ str(item.catatan) +'" attr-status-transaksi="'+ str(item.status_transaksi) +
+                '" attr-id-harga="'+ str(item.t_master_harga_pulsa) +'" class="btn btn-success m-btn m-btn--icon btn-sm m-btn--icon-only">'
+                            '<i class="la la-edit"></i>'
+                          '</a> &nbsp;'
+                          '<a id="anchor_delete" attr-id-item="'+ str(item.id) +'" class="btn btn-danger m-btn m-btn--icon btn-sm m-btn--icon-only">'
+                            '<i class="la la-trash"></i>'
+                          '</a>'
+            } for item in object_list
+        ]
+
+        datatable =  {'draw': draw,
+                 'recordsTotal': records_total,
+                 'recordsFiltered': records_filtered,
+                 'data': data}
+
+        return HttpResponse(json.dumps(datatable, cls=DjangoJSONEncoder), content_type='application/json')
+
+    def get(self, request):
+        jobs = request.GET['jobs'].lower()
+        if jobs == "get_data_select_harga_pulsa":
+            return self._select_harga_pulsa(request)
+        elif jobs =="get_data_datatable":      
+           return self._datatables(request)
+        return JsonResponse({'status':'e','result':""})
+
+    def post(self, request):
+        return JsonResponse({'status':'e','result':""})
 
 class penjualan(View):
+    def _create(self, request):
+        harga_pulsa = t_master_harga_pulsa.objects.get(id=request.POST['slc_id_harga_pulsa'])
+        transaksi_pulsa = t_transaksi_pulsa()
+        transaksi_pulsa.t_master_harga_pulsa = harga_pulsa
+        transaksi_pulsa.no_hp         = request.POST['txt_nomer_hp']
+        transaksi_pulsa.total_bayar   = request.POST['txt_total_bayar']
+        transaksi_pulsa.status_transaksi = request.POST['slc_status_transaksi']
+        transaksi_pulsa.catatan       = request.POST['txt_catatan']
+        transaksi_pulsa.created_by    = "ilham"
+        transaksi_pulsa.created_date  = datetime.datetime.today().strftime('%Y-%m-%d')
+        transaksi_pulsa.updated_by    = ""
+        transaksi_pulsa.update_date   = datetime.datetime.today().strftime('%Y-%m-%d')
+        transaksi_pulsa.save()
+        return JsonResponse({'status':'s','result':'Data berhasil disimpan'}) 
+
+    def _put(self, request):
+        return JsonResponse({'status':'s','result':'Data berhasil diperbarui'})  
+
+    def _delete(self, request):      
+        t_transaksi_pulsa.objects.filter(pk=request.POST['id']).delete()        
+        return JsonResponse({'status':'s','result':'data berhasil di hapus'}) 
+
+    def post(self, request, *args, **kwargs):
+        method = request.POST['http_type'].lower()
+        if method == "post":
+            return self._create(request)
+        elif method == "put":
+            return self._put(request)
+        elif method == "delete":
+            return self._delete(request)
+        return JsonResponse({'status':'e','result':'http_type tidak diketahui'}) 
+
     def get(self, request, *args, **kwargs):
         return render(request, "Penjualan/index.html")
 
