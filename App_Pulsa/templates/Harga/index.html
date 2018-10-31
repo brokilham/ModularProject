@@ -373,6 +373,7 @@ $(document).ready(function() {
                 url:'/app_pulsa/harga_webview',    
                 headers: {  "X-CSRFToken": $("[name=csrfmiddlewaretoken]").val()},  
                 data:{"http_type":"get","jobs":"get_data_select_jenis_pulsa"},  
+                async : false,
                 success: function(data){  
                     $('#slc_id_jenis_pulsa_edit').append(data);     
                     $("#modal_edit_harga_pulsa").modal('show');  

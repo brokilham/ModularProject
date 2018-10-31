@@ -1,14 +1,13 @@
 import datetime
 import json
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.serializers.json import DjangoJSONEncoder
 from django.views import View
 from django.http import JsonResponse, HttpResponse
 from .models import t_master_jenis_pulsa,t_master_harga_pulsa,t_transaksi_pulsa
 from django.db.models import Q
-from django.core import serializers
+
  
 class jenis_pulsa_webview(View):       
     def get(self, request):
@@ -91,7 +90,7 @@ class jenis_pulsa(View):
     
     def _put(self,request):
         t_master_jenis_pulsa.objects.filter(pk=request.POST['id']).update(jenis_voucher = request.POST['jenis_voucher'], 
-        kode_voucher  = request.POST['kode_voucher'], tipe_voucher  = request.POST['tipe_voucher'],  
+        kode_voucher  = request.POST['kode_voucher'], tipe_voucher = request.POST['tipe_voucher'],
         updated_by = 'ilham',  update_date  = datetime.datetime.today().strftime('%Y-%m-%d'))
         return JsonResponse({'status':'s','result':'Data berhasil diperbarui'})
 
@@ -276,7 +275,7 @@ class penjualan_webview(View):
                 '" attr-jenis-voucher="'+ str(item.t_master_harga_pulsa.t_master_jenis_pulsa.jenis_voucher) +
                 '" attr-total-bayar="'+ str(item.total_bayar) +'" attr-tgl-beli="'+ str(item.created_date) +
                 '" attr-catatan="'+ str(item.catatan) +'" attr-status-transaksi="'+ str(item.status_transaksi) +
-                '" attr-id-harga="'+ str(item.t_master_harga_pulsa) +'" class="btn btn-success m-btn m-btn--icon btn-sm m-btn--icon-only">'
+                '" attr-id-harga="'+ str(item.t_master_harga_pulsa.id) +'" class="btn btn-success m-btn m-btn--icon btn-sm m-btn--icon-only">'
                             '<i class="la la-edit"></i>'
                           '</a> &nbsp;'
                           '<a id="anchor_delete" attr-id-item="'+ str(item.id) +'" class="btn btn-danger m-btn m-btn--icon btn-sm m-btn--icon-only">'

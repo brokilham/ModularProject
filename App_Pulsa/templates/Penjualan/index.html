@@ -376,6 +376,7 @@ $(document).ready(function() {
                 url:'/app_pulsa/penjualan_webview',    
                 headers: {  "X-CSRFToken": $("[name=csrfmiddlewaretoken]").val()},  
                 data:{"http_type":"get","jobs":"get_data_select_harga_pulsa"},  
+                async : false,
                 success: function(data){                  
                     $('#slc_id_harga_pulsa_edit').append(data);      
                     $("#modal_transaksi_pulsa_edit").modal('show');  
@@ -389,8 +390,8 @@ $(document).ready(function() {
         }
         
         $("#txt_id_edit").val($(this).attr('attr-id-item'));
-        $("#slc_id_harga_pulsa_edit").val('1');
-        console.log($(this).attr('attr-id-harga'));
+        $("#slc_id_harga_pulsa_edit").val($(this).attr('attr-id-harga'));
+        //console.log();
         $("#txt_nomer_hp_edit").val($(this).attr('attr-no-hp'));
         $("#date_tgl_transaksi_edit").val($(this).attr('attr-tgl-beli'));
         $("#txt_total_bayar_edit").val($(this).attr('attr-total-bayar'));
