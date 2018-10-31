@@ -339,6 +339,16 @@ class penjualan(View):
     def get(self, request, *args, **kwargs):
         return render(request, "Penjualan/index.html")
 
+
+class report_webview(View):
+    def _datatables(self,request):
+        return JsonResponse({'status':'e','result':'http_type tidak diketahui'}) 
+
+class report(View):
+    def get(self, request,*args,**kwargs):
+        return render(request,"Report/index.html")
+
+"""
 @login_required
 def index_penjualan(request):
     return render(request, "Penjualan/index.html")
@@ -352,3 +362,4 @@ def index_harga(request):
 @login_required
 def index_jenis_pulsa(request):
     return render(request, "Jenis_Pulsa/index.html")
+"""
